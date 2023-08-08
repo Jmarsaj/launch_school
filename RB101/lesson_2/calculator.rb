@@ -1,11 +1,16 @@
-puts "Welcome to Calculator"
+def prompt(message)
+  puts "@@ #{message}"
+end
 
-print "Enter first number: "
+
+prompt("Welcome to Calculator")
+
+prompt("Enter first number: ")
 number1 = gets.chomp
-print "Enter second number: "
+prompt("Enter second number: ")
 number2  =gets.chomp
 
-print "Enter the desired operation (add-1, subtract-2, multiply-3, divide-4): "
+prompt("Enter the desired operation (add-1, subtract-2, multiply-3, divide-4): ")
 operator = gets.chomp
 
 if operator == '1'
@@ -18,4 +23,4 @@ else
   result = number1.to_f / number2.to_f
 end
 
-puts "The result is #{result}" 
+prompt("The result is #{result}") 
