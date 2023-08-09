@@ -7,14 +7,12 @@ def valid_number?(num)
 end
 
 def operator_to_word(operator)
-
   case operator
   when '1' then 'Adding'
   when '2' then 'Subtracting'
   when '3' then 'Multiplying'
   when '4' then 'Dividing'
   end
-
 end
 
 prompt("Welcome to Calculator! Enter name")
@@ -33,7 +31,6 @@ end
 prompt("Hi #{name}!")
 
 loop do
-
   number1 = ''
   loop do
     prompt("Enter first number")
@@ -49,7 +46,7 @@ loop do
   number2 = ''
   loop do
     prompt("Enter second number")
-    number2  = gets.chomp
+    number2 = gets.chomp
 
     if valid_number?(number2)
       break
@@ -82,22 +79,19 @@ loop do
   prompt("#{operator_to_word(operator)} the two numbers...")
 
   result = case operator
-            when '1'
-              number1.to_i + number2.to_i
-            when '2'
-              number1.to_i - number2.to_i
-            when '3'
-              number1.to_i * number2.to_i
-            when '4'
-              number1.to_f / number2.to_f
-  end
-
+           when '1'
+             number1.to_i + number2.to_i
+           when '2'
+             number1.to_i - number2.to_i
+           when '3'
+             number1.to_i * number2.to_i
+           when '4'
+             number1.to_f / number2.to_f
+           end
 
   prompt("The result is #{result}")
   prompt("Enter Y to perform another calculation")
   answer = gets.chomp
   break unless answer.downcase().start_with?('y')
-
 end
-
-prompt("GOODBYE")
+prompt("GOODBYE \n")
