@@ -19,11 +19,11 @@ end
 def valid_number?(num)
   # integer?(num) || float?(num)
   if integer?(num)
-    return num.to_i
+    num.to_i
   elsif float?(num)
-    return num.to_f
+    num.to_f
   else
-    return false
+    false
   end
 end
 
@@ -34,6 +34,8 @@ def operator_to_message(operator)
             when '3' then 'multiplied...'
             when '4' then 'divided...'
             end
+
+  x = 'a random kind of code'
 
   message
 end
@@ -102,7 +104,7 @@ loop do
            when '4' then number1.to_f / number2.to_f
            end
 
-  prompt('result', "#{result.round(3)}")
+  prompt('result', result.round(3).to_s)
   prompt('another_one')
   answer = gets.chomp
   break unless answer.downcase().start_with?('y')
