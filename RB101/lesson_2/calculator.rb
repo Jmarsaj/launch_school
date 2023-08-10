@@ -1,8 +1,10 @@
 require 'yaml'
 MESSAGES = YAML.load_file('calculator_messages.yml')
+LANGUAGE = 'fr'
 
-def prompt(message)
-  puts "@@ #{message}"
+def prompt(key, extra='')
+  message = MESSAGES[LANGUAGE][key]
+  puts "@@ #{message}" + extra
 end
 
 def float?(num)
@@ -27,58 +29,58 @@ end
 
 def operator_to_message(operator)
   message = case operator
-            when '1' then 'Adding'
-            when '2' then 'Subtracting'
-            when '3' then 'Multiplying'
-            when '4' then 'Dividing'
+            when '1' then 'added...'
+            when '2' then 'subtracted...'
+            when '3' then 'multiplied...'
+            when '4' then 'divided...'
             end
 
   message
 end
 
-prompt(MESSAGES['welcome'])
+prompt('welcome')
 
 name = ''
 loop do
   name = gets.chomp
 
   if name.empty?
-    prompt(MESSAGES['valid_name'])
+    prompt('valid_name')
   else
     break
   end
 end
 
-prompt(MESSAGES['greeting'] + name + "!")
+prompt('greeting', "#{name}!")
 
 loop do
   number1 = ''
   loop do
-    prompt(MESSAGES['first_number'])
+    prompt('first_number')
     number1 = gets.chomp
 
     if valid_number?(number1)
       number1 = valid_number?(number1)
       break
     else
-      prompt(MESSAGES['valid_number'])
+      prompt('valid_number')
     end
   end
 
   number2 = ''
   loop do
-    prompt(MESSAGES['second_number'])
+    prompt('second_number')
     number2 = gets.chomp
 
     if valid_number?(number2)
       number2 = valid_number?(number2)
       break
     else
-      prompt(MESSAGES['valid_number'])
+      prompt('valid_number')
     end
   end
 
-  prompt(MESSAGES['operator_prompt'])
+  prompt('operator_prompt')
   operator = ''
 
   loop do
@@ -87,11 +89,11 @@ loop do
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt(MESSAGES['valid_operator'])
+      prompt('valid_operator')
     end
   end
 
-  prompt(operator_to_message(operator) + MESSAGES['operation_message'])
+  prompt('operation_message', operator_to_message(operator))
 
   result = case operator
            when '1'
@@ -104,9 +106,9 @@ loop do
              number1.to_f / number2.to_f
            end
 
-  prompt(MESSAGES['result'] + "#{result.round(3)}")
-  prompt(MESSAGES['another_one'])
+  prompt('result', "#{result.round(3)}")
+  prompt('another_one')
   answer = gets.chomp
   break unless answer.downcase().start_with?('y')
 end
-prompt(MESSAGES['end'])
+prompt('end')

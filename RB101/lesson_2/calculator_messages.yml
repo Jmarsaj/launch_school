@@ -1,20 +1,42 @@
+en:
+  welcome: "Welcome to Calculator! Enter name"
+  valid_name: "Not a valid name"
+  greeting: "How you doin "
+  first_number: "Enter first number"
+  valid_number: "Not a vaild number"
+  second_number: "Enter second number"
 
-welcome: "Welcome to Calculator! Enter name"
-valid_name: "Not a valid name"
-greeting: "How you doin "
-first_number: "Enter first number"
-valid_number: "Not a vaild number"
-second_number: "Enter second number"
+  operator_prompt: "Which operation would you like to perform?\n
+    1) add\n
+    2) subtract\n
+    3) multiply\n
+    4) divide
+    "
 
-operator_prompt: "Which operation would you like to perform?\n
-  1) add\n
-  2) subtract\n
-  3) multiply\n
-  4) divide
-  "
+  valid_operator: "Enter 1, 2, 3 or 4"
+  operation_message: "The two numbers are being "
+  result: "The result is "
+  another_one: "Enter Y to perform another calculation"
+  end: "GOODBYE \n"
 
-valid_operator: "Enter 1, 2, 3 or 4"
-operation_message: " the two numbers..."
-result: "The result is "
-another_one: "Enter Y to perform another calculation"
-end: "GOODBYE \n"
+
+fr:
+  welcome: "Bienvenue dans Calculator! Entrez le nom"
+  valid_name: "Nom non valide"
+  greeting: "Comment vous faites "
+  first_number: "Entrez le premier numéro"
+  valid_number: "Pas un nombre vaild"
+  second_number: "Entrez le deuxième numéro"
+
+  operator_prompt: "Quelle opération souhaitez-vous effectuer?\n
+    1) ajouter\n
+    2) soustraire\n
+    3) multiplier\n
+    4) diviser
+    "
+
+  valid_operator: "Entrez 1, 2, 3 ou 4"
+  operation_message: "Les deux chiffres sont "
+  result: "Le résultat est "
+  another_one: "Entrez Y pour effectuer un autre calcul"
+  end: "AU REVOIR \n"
