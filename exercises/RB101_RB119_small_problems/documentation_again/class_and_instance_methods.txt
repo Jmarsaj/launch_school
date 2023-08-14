@@ -1,0 +1,16 @@
+File::path (is the Class method)
+Returns the string representation of the path
+Class methods are called on the Class
+
+File.path("/dev/null")              #=> "/dev/null"
+File.path(Pathname.new("/tmp"))     #=> "/tmp"
+
+
+
+
+File#path (is the instance method)
+Returns the pathname used to create a file as a string
+instance methods are called on the objects
+
+File.new("testfile").path                 #=> "testfile"
+File.new("/tmp/../tmp/xxx", "w").path     #=> "/tmp/../tmp/xxx"

@@ -1,0 +1,6 @@
+YAML::load_file documentation can be found at https://ruby-doc.org/3.2.2/exts/psych/Psych.html#method-c-load_file
+
+The data is found under psych module
+
+load_file(filename, **kwargs)
+Loads the document contained in filename. Returns the yaml contained in filename as a Ruby object, or if the file is empty, it returns the specified fallback return value, which defaults to false. See load for options.
