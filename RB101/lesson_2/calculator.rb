@@ -1,6 +1,6 @@
 require 'yaml'
 MESSAGES = YAML.load_file('calculator_messages.yml')
-LANGUAGE = 'fr'
+LANGUAGE = 'en'   # Available languages 'en', 'fr'
 
 def prompt(key, extra='')
   message = MESSAGES[LANGUAGE][key]
@@ -34,28 +34,25 @@ def operator_to_message(operator)
             when '3' then 'multiplied...'
             when '4' then 'divided...'
             end
-
-  x = 'a random kind of code'
-
-  message
 end
 
-prompt('welcome')
+def get_name
+  name = ''
+  loop do
+    name = gets.chomp
 
-name = ''
-loop do
-  name = gets.chomp
-
-  if name.empty?
-    prompt('valid_name')
-  else
-    break
+    if name.strip.empty?
+      prompt('valid_name')
+    else
+      name.capitalize!
+      break
+    end
   end
+  prompt('greeting', "#{name}!")
+  name
 end
 
-prompt('greeting', "#{name}!")
-
-loop do
+def get_numbers
   number1 = ''
   loop do
     prompt('first_number')
@@ -81,10 +78,11 @@ loop do
       prompt('valid_number')
     end
   end
+  return number1, number2
+end
 
-  prompt('operator_prompt')
+def get_operator
   operator = ''
-
   loop do
     operator = gets.chomp
 
@@ -94,19 +92,42 @@ loop do
       prompt('valid_operator')
     end
   end
+  operator
+end
 
-  prompt('operation_message', operator_to_message(operator))
-
-  result = case operator
+def calculate(operator, number1, number2)
+  case operator
            when '1' then number1 + number2
            when '2' then number1 - number2
            when '3' then number1 * number2
            when '4' then number1.to_f / number2.to_f
            end
+end
 
-  prompt('result', result.round(3).to_s)
+def repeat?
   prompt('another_one')
   answer = gets.chomp
-  break unless answer.downcase().start_with?('y')
+  answer.downcase().start_with?('y')
 end
-prompt('end')
+
+# MAIN
+
+prompt('welcome')
+name = get_name
+
+loop do
+  number1, number2 = get_numbers
+
+  prompt('operator_prompt')
+  operator = get_operator
+
+  prompt('operation_message', operator_to_message(operator))
+
+  result = calculate(operator, number1, number2)
+
+  prompt('result', result.round(3).to_s)
+
+  break unless repeat?
+end
+
+prompt('end', "#{name}!")

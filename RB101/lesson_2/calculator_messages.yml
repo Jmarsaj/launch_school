@@ -17,7 +17,7 @@ en:
   operation_message: "The two numbers are being "
   result: "The result is "
   another_one: "Enter Y to perform another calculation"
-  end: "GOODBYE \n"
+  end: "GOODBYE "
 
 
 fr:
@@ -39,4 +39,4 @@ fr:
   operation_message: "Les deux chiffres sont "
   result: "Le résultat est "
   another_one: "Entrez Y pour effectuer un autre calcul"
-  end: "AU REVOIR \n"
+  end: "AU REVOIR "
