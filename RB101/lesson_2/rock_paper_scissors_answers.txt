@@ -1,0 +1,12 @@
+Things to consider
+1. Notice how the display_results method calls the prompt method. What happens if you 
+move the display_results method definition above the prompt method definition? 
+Does it still work?
+A. Yes it still works since it display_results is invoked after prompt method definition
+
+2. Create another method called test_method at the very top, before the prompt method definition.
+Now try invoking the newly created method from just after the prompt method definition. 
+Does it work? Now try invoking the method again just before the prompt method definition. 
+Does it work? Why is there a different result?
+A. Invoking the method after the prompt method definition works
+   Invoking the method before the prompt method definition produces an error
